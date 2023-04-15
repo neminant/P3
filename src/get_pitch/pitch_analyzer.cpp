@@ -12,9 +12,9 @@ namespace upc {
 
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
-      r[1] = 0;
+      r[l] = 0;
       for (unsigned int n = 0; n < x.size() - 1; ++n){
-        r[1] += x[n] * x[n+1];
+        r[l] += x[n] * x[n+l];
       }
       r[1] /= x.size();
       /// \DONE
