@@ -16,7 +16,7 @@ namespace upc {
       for (unsigned int n = 0; n < x.size() - 1; ++n){
         r[l] += x[n] * x[n+l];
       }
-      r[1] /= x.size();
+      r[l] /= x.size();
       /// \DONE
     }
 
