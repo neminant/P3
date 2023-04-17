@@ -47,10 +47,6 @@ int main(int argc, const char *argv[]) {
 	std::string input_wav = args["<input-wav>"].asString();
 	std::string output_txt = args["<output-txt>"].asString();
 
-  float potvalue = std::stof(args["--potvalue"].asString());
-  float r1norm = std::stof(args["--r1norm"].asString());
-  float rmaxnorm = std::stof(args["--rmaxnorm"].asString());
-  
   // Read input sound file
   unsigned int rate;
   vector<float> x;
@@ -61,7 +57,6 @@ int main(int argc, const char *argv[]) {
 
   int n_len = rate * FRAME_LEN;
   int n_shift = rate * FRAME_SHIFT;
-  float max_value = *max_element(x.begin(),x.end());
 
   // Define analyzer
   PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500);
@@ -81,6 +76,7 @@ int main(int argc, const char *argv[]) {
   /// \TODO
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
+
 
   // Write f0 contour into the output file
   ofstream os(output_txt);

@@ -4,6 +4,8 @@
 #include <math.h>
 #include "pitch_analyzer.h"
 
+#define _USE_MATH_DEFINES
+
 using namespace std;
 
 /// Name space of UPC
@@ -16,7 +18,7 @@ namespace upc {
       for (unsigned int n = 0; n < x.size() - 1; ++n){
         r[l] += x[n] * x[n+l];
       }
-      r[l] /= x.size();
+      r[l] = r[l] / x.size();
       /// \DONE
     }
 
@@ -38,7 +40,7 @@ namespace upc {
       for(unsigned int i = 0; i < frameLen; i++){
         window[i] = c0 - c1*cos((2*M_PI*i)/(frameLen-1));
       }
-      /// \Done
+      /// \DONE
       break;
     case RECT:
     default:
@@ -62,22 +64,11 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
-    float score = 0;
-    static float power_first_window = 0;
-    static int window = 0;
-    const float potvalue = potvalue_th, r1value = r1norm_th, rmaxvalue = rmaxnorm_th;
-
-    if(pot < potvalue){
-      score += 0.5;
-    } else if(r1norm < r1value){
-      score += 0.5;
-    } else if(rmaxnorm < rmaxvalue){
-      score += 0.5;
-    }
-    if(score >= 0.5){
-      return true;
-    } else{
+    
+    if((rmaxnorm > 0.5F || r1norm > 0.92F) && pot > -48.0F){
       return false;
+    } else{
+      return true;
     }
 
     /// \DONE
@@ -96,7 +87,8 @@ namespace upc {
     //Compute correlation
     autocorrelation(x, r);
 
-    vector<float>::const_iterator iR = r.begin(), iRMax = iR;
+    vector<float>::const_iterator iR = r.begin() + npitch_min, iRMax = iR;
+    //vector<float>::const_iterator iRMax = r.begin() + npitch_min;
 
     /// \TODO 
 	/// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
@@ -106,10 +98,11 @@ namespace upc {
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
 
-    for(vector<float>::const_iterator iR = iRMax; iR < r.end(); iR++){
+    while(iR != r.end()){
       if(*iR > *iRMax){
-        iRMax = iR;
+        iRMax = iR; //Hem trobat un nou màxim, però seguim mirant si n'hi ha algun altre
       }
+      iR++;
     }
     /// \DONE
 
