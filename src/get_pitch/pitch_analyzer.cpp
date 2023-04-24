@@ -15,7 +15,7 @@ namespace upc {
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
       r[l] = 0;
-      for (unsigned int n = 0; n < x.size() - 1; ++n){
+      for (unsigned int n = 0; n < x.size() - l; ++n){
         r[l] += x[n] * x[n+l];
       }
       r[l] = r[l] / x.size();
@@ -65,11 +65,23 @@ namespace upc {
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
     
-    if((rmaxnorm > 0.5F || r1norm > 0.92F) && pot > -48.0F){
+    if((rmaxnorm > 0.5F || r1norm > 0.95F) && pot>-48.0F){
       return false;
     } else{
       return true;
     }
+    // if((rmaxnorm>this->u_rmax || r1norm>this->u_r1) && pot>this->u_pot){
+    //   return false;
+    // } else{
+    //   return true;
+    // }
+    
+    // if(pot>this->u_pot && r1norm>this->u_r1 && rmaxnorm>this->u_rmax){
+    //   return false;
+    // } else{
+    //   return true;
+    // }
+    
 
     /// \DONE
   }
@@ -98,6 +110,8 @@ namespace upc {
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
 
+
+//nose si posar r.begin()+npitch_max en comptes de r.end();
     while(iR != r.end()){
       if(*iR > *iRMax){
         iRMax = iR; //Hem trobat un nou màxim, però seguim mirant si n'hi ha algun altre
