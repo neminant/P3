@@ -24,7 +24,8 @@ Ejercicios básicos
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
 	 
 ![Captura de pantalla de 2023-05-07 22-14-48](https://user-images.githubusercontent.com/126669600/236700678-181cf0e9-d994-41d9-9519-a61c82c59121.png)
-Si mirem on cauren dos mínims, podem obtenir que el període és aproximadament 9ms, de manera que el pitch és l'invers del període, per tant obtenim un pitch de 110Hz.
+
+Si mirem on cauren dos mínims, podem obtenir que el període és aproximadament 9ms, de manera que el pitch és l'invers del període, per tant obtenim un pitch de 110Hz. Aquest valor concorda amb la gràfica de l'autocorrelació
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
