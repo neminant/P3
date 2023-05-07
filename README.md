@@ -65,6 +65,10 @@ Per saber si un so és sord o sonor, mirarem la potència de la senyal, ja que l
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 ![Captura de pantalla de 2023-05-07 21-57-26](https://user-images.githubusercontent.com/126669600/236702447-15df37f3-74ed-4cc3-aaef-fe3fa2ca25e2.png)
+
+Els valors utilitzats per a rmaxnorm, r1norm i pot són aquests:
+![Captura de pantalla de 2023-05-07 23-02-17](https://user-images.githubusercontent.com/126669600/236702509-86d7cf86-6d88-4b63-a2b1-9399524ee476.png)
+
 ![Captura de pantalla de 2023-05-07 23-02-17](https://user-images.githubusercontent.com/126669600/236702450-528f5280-7a07-4cb1-95e5-5948fd758cc2.png)
 
 Hem obtingut resultats força favorables ja que són majors del 90%
