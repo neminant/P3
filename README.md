@@ -108,6 +108,16 @@ Per tal d'obtenir aquest resultat hem modificat el codi, afegint-hi aquestes lí
 On la constant CENTERCLIP val 0.004
 
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
+ 
+Hem decidit implementar el filtre de mediana amb aquest codi:
+
+![Captura de pantalla de 2023-05-07 23-35-18](https://user-images.githubusercontent.com/126669600/236703636-53186367-f441-4574-ac88-679cdb286740.png)
+
+I altre vegada, veiem que el percentatge del detector de pitch ha augmentat:
+
+![Captura de pantalla de 2023-05-07 23-36-01](https://user-images.githubusercontent.com/126669600/236703652-cb7c2f77-7ed6-44b3-87e6-0b526f769c90.png)
+
+
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el estimador, en concreto, de los que
