@@ -106,7 +106,6 @@ namespace upc {
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
     /// \DONE 
 
-//nose si posar r.begin()+npitch_max en comptes de r.end();
     while(iR != r.end()){
       if(*iR > *iRMax){
         iRMax = iR;
