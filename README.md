@@ -54,12 +54,19 @@ Per saber si un so és sord o sonor, mirarem la potència de la senyal, ja que l
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
 		en esta práctica es de 15 ms.
 
+Les gràfiques que podem observar, començant per dalt són: rmaxnorm, r1norm, potència i el càlcul del pitch
+![Captura de pantalla de 2023-05-07 23-37-47](https://user-images.githubusercontent.com/126669600/236703751-b96eda43-b119-4569-851e-3974f5dc1834.png)
+
+
       - Use el estimador de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos estimadores.
      
 		Aunque puede usar el propio Wavesurfer para obtener la representación, se valorará
 	 	el uso de alternativas de mayor calidad (particularmente Python).
+
+![Captura de pantalla de 2023-05-07 23-40-02](https://user-images.githubusercontent.com/126669600/236703835-e00ffdd1-676c-44a9-94b6-0adb314b5b7a.png)
+
   
   * Optimice los parámetros de su sistema de estimación de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
