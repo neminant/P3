@@ -31,7 +31,7 @@ namespace upc {
       npitch_min, ///< minimum value of pitch period, in samples
       npitch_max; ///< maximum value of pitch period, in samples
       float u_pot = -48.0F;
-      float u_r1 = 0.92F;
+      float u_r1 = 0.95F;
       float u_rmax = 0.5F;
 	///
 	/// Computes correlation from lag=0 to r.size()
@@ -56,7 +56,7 @@ namespace upc {
 					float min_F0 = MIN_F0,		///< Pitch range should be restricted to be above this value
 					float max_F0 = MAX_F0,		///< Pitch range should be restricted to be below this value
           float u_pot = -48.0F,
-          float u_r1 = 0.92F,
+          float u_r1 = 0.95F,
           float u_rmax = 0.5F
          )
 	{

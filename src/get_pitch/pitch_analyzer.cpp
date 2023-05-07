@@ -14,12 +14,16 @@ namespace upc {
 
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
+      /// \DONE Autocorrelacion calculada
+      /// - Inicializamos la autocorrelación a 0
+      /// - Acumulamos los productos cruzados \f$\sum_{n=0}^{N-1} x[n]x[n+l]\f$
+      /// - Dividimos por el número de muestras
+
       r[l] = 0;
-      for (unsigned int n = 0; n < x.size() - l; ++n){
+      for (unsigned int n = 0; n < x.size() - l -1; ++n){
         r[l] += x[n] * x[n+l];
       }
       r[l] = r[l] / x.size();
-      /// \DONE
     }
 
     if (r[0] == 0.0F) //to avoid log() and divide zero 
@@ -37,10 +41,10 @@ namespace upc {
     switch (win_type) {
     case HAMMING:
       /// \TODO Implement the Hamming window
+      /// \DONE Hamming window implementada
       for(unsigned int i = 0; i < frameLen; i++){
         window[i] = c0 - c1*cos((2*M_PI*i)/(frameLen-1));
       }
-      /// \DONE
       break;
     case RECT:
     default:
@@ -64,28 +68,19 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
-    
-    if((rmaxnorm > 0.5F || r1norm > 0.95F) && pot>-48.0F){
+    /// \DONE Voiced/unvoiced
+    if((rmaxnorm>this->u_rmax || r1norm>this->u_r1) && pot>this->u_pot){
       return false;
     } else{
       return true;
     }
-    // if((rmaxnorm>this->u_rmax || r1norm>this->u_r1) && pot>this->u_pot){
-    //   return false;
-    // } else{
-    //   return true;
-    // }
-    
+
     // if(pot>this->u_pot && r1norm>this->u_r1 && rmaxnorm>this->u_rmax){
     //   return false;
     // } else{
     //   return true;
     // }
-    
-
-    /// \DONE
   }
-
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
     if (x.size() != frameLen)
       return -1.0F;
@@ -109,16 +104,15 @@ namespace upc {
 	///    - The lag corresponding to the maximum value of the pitch.
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
-
+    /// \DONE 
 
 //nose si posar r.begin()+npitch_max en comptes de r.end();
     while(iR != r.end()){
       if(*iR > *iRMax){
-        iRMax = iR; //Hem trobat un nou màxim, però seguim mirant si n'hi ha algun altre
+        iRMax = iR;
       }
       iR++;
     }
-    /// \DONE
 
     unsigned int lag = iRMax - r.begin();
 

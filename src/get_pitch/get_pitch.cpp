@@ -25,9 +25,9 @@ Usage:
     get_pitch --version
 
 Options:
-    -p, --u_pot REAL   Llindar de potencia per la determinacio sonor-sord [default: -1e6]
-    -1, --u_r1 REAL    Llindar de l'autocorrelacio p'1 per sonor-sord [default: 0.7]
-    -m, --u_rmax REAL  Llindar al maxim de l'autocorrelacio [default: 0.4]
+    -p, --u_pot REAL   Llindar de potencia per la determinacio sonor-sord [default: -48.0F]
+    -1, --u_r1 REAL    Llindar de l'autocorrelacio p'1 per sonor-sord [default: 0.95F]
+    -m, --u_rmax REAL  Llindar al maxim de l'autocorrelacio [default: 0.5F]
     -h, --help  Show this screen
     --version   Show the version of the project
 
