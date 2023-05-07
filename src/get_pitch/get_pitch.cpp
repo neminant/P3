@@ -12,6 +12,7 @@
 
 #define FRAME_LEN   0.030 /* 30 ms. */
 #define FRAME_SHIFT 0.015 /* 15 ms. */
+#define CENTERCLIP 0.004
 
 using namespace std;
 using namespace upc;
@@ -25,9 +26,9 @@ Usage:
     get_pitch --version
 
 Options:
-    -p, --u_pot REAL   Llindar de potencia per la determinacio sonor-sord [default: -48.0F]
-    -1, --u_r1 REAL    Llindar de l'autocorrelacio p'1 per sonor-sord [default: 0.95F]
-    -m, --u_rmax REAL  Llindar al maxim de l'autocorrelacio [default: 0.5F]
+    -p, --u_pot REAL   Llindar de potencia per la determinacio sonor-sord [default: -43.5F]
+    -1, --u_r1 REAL    Llindar de l'autocorrelacio p'1 per sonor-sord [default: 0.965F]
+    -m, --u_rmax REAL  Llindar al maxim de l'autocorrelacio [default: 0.4F]
     -h, --help  Show this screen
     --version   Show the version of the project
 
@@ -71,6 +72,12 @@ int main(int argc, const char *argv[]) {
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
   /// central-clipping or low pass filtering may be used.
   
+  for(unsigned int n = 0; n < x.size(); ++n){
+    if(x[n] < CENTERCLIP && x[n] > -CENTERCLIP){
+      x[n] = 0;
+    }
+  }
+
   // Iterate for each frame and save values in f0 vector
   vector<float>::iterator iX;
   vector<float> f0;
@@ -83,6 +90,12 @@ int main(int argc, const char *argv[]) {
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
 
+  // Median Filter
+  for(unsigned int n = 1; n < f0.size(); ++n){
+    vector<float> vec {f0[n-1],f0[n],f0[n+1]};
+    sort(vec.begin(), vec.end());
+    f0[n] = vec[1];
+  }
 
   // Write f0 contour into the output file
   ofstream os(output_txt);

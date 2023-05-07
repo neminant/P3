@@ -35,7 +35,7 @@ namespace upc {
       return;
 
     window.resize(frameLen);
-    const float c0 = 0.5435;
+    const float c0 = 0.54F;
     const float c1 = 1 - c0;
 
     switch (win_type) {
