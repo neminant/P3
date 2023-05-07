@@ -29,6 +29,7 @@ Ejercicios básicos
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 ![Captura de pantalla de 2023-05-07 21-57-26](https://user-images.githubusercontent.com/126669600/236699968-3ba49e83-38a6-4a7a-800f-746aa3597bd9.png)
+
 Per saber si un so és sord o sonor, mirarem la potència de la senyal, ja que la potència serà major si és sonor.
 
    * Puede serle útil seguir las instrucciones contenidas en el documento adjunto `código.pdf`.
