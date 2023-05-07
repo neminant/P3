@@ -88,6 +88,9 @@ Ejercicios de ampliación
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
 
+![Captura de pantalla de 2023-05-07 23-19-23](https://user-images.githubusercontent.com/126669600/236703094-33adb728-04e1-4c35-8788-627ccba3a569.png)
+
+
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de estimación
   de pitch.
 
