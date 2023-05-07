@@ -97,6 +97,14 @@ Ejercicios de ampliación
   Entre las posibles mejoras, puede escoger una o más de las siguientes:
 
   * Técnicas de preprocesado: filtrado paso bajo, diezmado, *center clipping*, etc.
+Aplicant el mètode Center Clipping hem aconseguit millorar el percentatge del detector de pitch:
+![Captura de pantalla de 2023-05-07 23-27-18](https://user-images.githubusercontent.com/126669600/236703364-bcf35eed-5c94-4b06-af1f-03679f98a349.png)
+
+Per tal d'obtenir aquest resultat hem modificat el codi, afegint-hi aquestes línies:
+![Captura de pantalla de 2023-05-07 23-25-51](https://user-images.githubusercontent.com/126669600/236703454-d8fea0bc-af27-4ae7-b149-0a43c2e293a5.png)
+
+On la constant CENTERCLIP val 0.004
+
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
