@@ -14,7 +14,7 @@ Ejercicios básicos
   `get_pitch`.
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
-
+![Captura de pantalla de 2023-05-07 21-47-19](https://user-images.githubusercontent.com/126669600/236699515-d7182659-b59a-41ba-822c-7d6b2b1e1b2e.png)
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
@@ -25,8 +25,12 @@ Ejercicios básicos
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
+![Captura de pantalla de 2023-05-07 21-55-06](https://user-images.githubusercontent.com/126669600/236699871-bba6f54f-f79c-4761-bac9-89ebe0663e7a.png)
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+![Captura de pantalla de 2023-05-07 21-57-26](https://user-images.githubusercontent.com/126669600/236699968-3ba49e83-38a6-4a7a-800f-746aa3597bd9.png)
+
+Per saber si un so és sord o sonor, mirarem la potència de la senyal, ja que la potència serà major si és sonor.
 
    * Puede serle útil seguir las instrucciones contenidas en el documento adjunto `código.pdf`.
 
