@@ -64,6 +64,11 @@ Per saber si un so és sord o sonor, mirarem la potència de la senyal, ja que l
   * Optimice los parámetros de su sistema de estimación de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
+![Captura de pantalla de 2023-05-07 21-57-26](https://user-images.githubusercontent.com/126669600/236702447-15df37f3-74ed-4cc3-aaef-fe3fa2ca25e2.png)
+![Captura de pantalla de 2023-05-07 23-02-17](https://user-images.githubusercontent.com/126669600/236702450-528f5280-7a07-4cb1-95e5-5948fd758cc2.png)
+
+Hem obtingut resultats força favorables ja que són majors del 90%
+
 
 Ejercicios de ampliación
 ------------------------
