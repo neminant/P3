@@ -97,6 +97,7 @@ Ejercicios de ampliación
   Entre las posibles mejoras, puede escoger una o más de las siguientes:
 
   * Técnicas de preprocesado: filtrado paso bajo, diezmado, *center clipping*, etc.
+
 Aplicant el mètode Center Clipping hem aconseguit millorar el percentatge del detector de pitch:
 
 ![Captura de pantalla de 2023-05-07 23-27-18](https://user-images.githubusercontent.com/126669600/236703364-bcf35eed-5c94-4b06-af1f-03679f98a349.png)
