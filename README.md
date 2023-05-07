@@ -22,6 +22,10 @@ Ejercicios básicos
 
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
+	 
+![Captura de pantalla de 2023-05-07 22-14-48](https://user-images.githubusercontent.com/126669600/236700678-181cf0e9-d994-41d9-9519-a61c82c59121.png)
+
+Si mirem on cauren dos mínims, podem obtenir que el període és aproximadament 9ms, de manera que el pitch és l'invers del període, per tant obtenim un pitch de 110Hz. Aquest valor concorda amb la gràfica de l'autocorrelació
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
@@ -50,16 +54,33 @@ Per saber si un so és sord o sonor, mirarem la potència de la senyal, ja que l
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
 		en esta práctica es de 15 ms.
 
+Les gràfiques que podem observar, començant per dalt són: rmaxnorm, r1norm, potència i el càlcul del pitch
+![Captura de pantalla de 2023-05-07 23-37-47](https://user-images.githubusercontent.com/126669600/236703751-b96eda43-b119-4569-851e-3974f5dc1834.png)
+
+
       - Use el estimador de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos estimadores.
      
 		Aunque puede usar el propio Wavesurfer para obtener la representación, se valorará
 	 	el uso de alternativas de mayor calidad (particularmente Python).
+
+![Captura de pantalla de 2023-05-07 23-40-02](https://user-images.githubusercontent.com/126669600/236703835-e00ffdd1-676c-44a9-94b6-0adb314b5b7a.png)
+
   
   * Optimice los parámetros de su sistema de estimación de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
+![Captura de pantalla de 2023-05-07 21-57-26](https://user-images.githubusercontent.com/126669600/236702447-15df37f3-74ed-4cc3-aaef-fe3fa2ca25e2.png)
+
+Els valors utilitzats per a rmaxnorm, r1norm i pot són aquests:
+
+![Captura de pantalla de 2023-05-07 23-04-35](https://user-images.githubusercontent.com/126669600/236702535-68e67c95-1ebe-43ab-af63-e167f0e92007.png)
+
+![Captura de pantalla de 2023-05-07 23-02-17](https://user-images.githubusercontent.com/126669600/236702450-528f5280-7a07-4cb1-95e5-5948fd758cc2.png)
+
+Hem obtingut resultats força favorables ja que són majors del 90%
+
 
 Ejercicios de ampliación
 ------------------------
@@ -74,13 +95,36 @@ Ejercicios de ampliación
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
 
+![Captura de pantalla de 2023-05-07 23-19-23](https://user-images.githubusercontent.com/126669600/236703094-33adb728-04e1-4c35-8788-627ccba3a569.png)
+
+
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de estimación
   de pitch.
 
   Entre las posibles mejoras, puede escoger una o más de las siguientes:
 
   * Técnicas de preprocesado: filtrado paso bajo, diezmado, *center clipping*, etc.
+
+Aplicant el mètode Center Clipping hem aconseguit millorar el percentatge del detector de pitch:
+
+![Captura de pantalla de 2023-05-07 23-27-18](https://user-images.githubusercontent.com/126669600/236703364-bcf35eed-5c94-4b06-af1f-03679f98a349.png)
+
+Per tal d'obtenir aquest resultat hem modificat el codi, afegint-hi aquestes línies:
+![Captura de pantalla de 2023-05-07 23-25-51](https://user-images.githubusercontent.com/126669600/236703454-d8fea0bc-af27-4ae7-b149-0a43c2e293a5.png)
+
+On la constant CENTERCLIP val 0.004
+
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
+ 
+Hem decidit implementar el filtre de mediana amb aquest codi:
+
+![Captura de pantalla de 2023-05-07 23-35-18](https://user-images.githubusercontent.com/126669600/236703636-53186367-f441-4574-ac88-679cdb286740.png)
+
+I altre vegada, veiem que el percentatge del detector de pitch ha augmentat:
+
+![Captura de pantalla de 2023-05-07 23-36-01](https://user-images.githubusercontent.com/126669600/236703652-cb7c2f77-7ed6-44b3-87e6-0b526f769c90.png)
+
+
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el estimador, en concreto, de los que
